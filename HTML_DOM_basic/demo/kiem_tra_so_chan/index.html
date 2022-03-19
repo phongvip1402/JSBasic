@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra số chẵn</title>
+</head>
+<body>
+    <input type="number" placeholder="nhập số" id="number">
+    <button input type="button" onclick="kt_so()">Kiểm tra</button>
+    <script>
+        function kt_so(){
+            let number = document.getElementById("number").value;
+            if(number%2==0){
+                alert("Số " + number +" là số chẵn")
+            }else{
+                alert("Số " + number +" là số lẻ")
+            }
+        }
+    </script>
+</body>
+</html>
