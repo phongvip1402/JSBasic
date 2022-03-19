@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bắt sự kiện onclic</title>
+</head>
+<body>
+    <h1>Sụ kiện onClick</h1>
+    <button type="button" onclick="doSomeThing()">Xin chào</button>
+    <button type="button" id="btnHello" >Logold</button>
+    <button type="button" id="btnData" onclick="logData(this)" >LogData</button><br>
+    <hr>
+    <h1>Sự kiện onChange</h1>
+    <select name="car" id="car" onchange="selectCar()">
+        <option value="BMW">BMV</option>
+        <option value="Audi">Audi</option>
+        <option value="Mercedes">Mercedes</option>
+    </select>
+
+    <select name="carlist" id="carListener" onchange="mySelectCar()">
+        <option value="BMW_Pro">BMV Pro</option>
+        <option value="Audi_Prp">Audi Pro</option>
+        <option value="Mercedes_Pro">Mercedes Pro</option>
+    </select>
+    <br>
+
+    <h1>Sự kiện onmuoseout và onmouseover</h1>
+    <button type="button" id="btnxinchao" onmouseover="mouseover()" onmouseout="mouseout()">Xin chào</button>
+    <script>
+        //Sự kiện onClick
+        function doSomeThing() {
+            let nameInput = prompt("Bạn tên là gì");
+            alert("Xin chào "+ nameInput);
+            document.write("Xin chào bạn" + nameInput)
+            console.log("Xin chào" + nameInput)
+        }
+
+        function logData(obj) {
+            console.log(obj);
+        }
+
+        let name = document.getElementById("btnHello");
+        name.addEventListener("click", function  old() {
+            let oldInput = prompt("Bạn bao nhiêu tuổi");
+            alert("Xin chào bạn mình cũng "+ oldInput);
+        })
+
+        //Sự kiên onChange
+        function selectCar(){
+            let car = document.getElementById("car").value;
+            alert("Bạn đã chọn " + car);
+        }
+
+        let carlisten = document.getElementById("carlisten");
+        carlisten.addEventListener("change",mySelectCar)
+        function mySelectCar() {
+            let carlist = document.getElementById("carListener").value;
+            alert("Bạn đã chọn " + carlist);
+        }
+        //sự kiện onmouseover và onmouseout
+        let mouse = document.getElementById("btnxinchao1");
+        mouse.addEventListener("mouseover",mouseover)
+        mouse.addEventListener("mouseout",mouseout)
+        function mouseout() {
+            document.getElementById("btnxinchao").style.backgroundColor="yellow";
+        }
+        function mouseover() {
+          document.getElementById("btnxinchao").style.backgroundColor="blue";
+        }   
+    </script>
+</body>
+</html>

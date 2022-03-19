@@ -9,9 +9,12 @@
 <body>
     <script>
         let m = parseFloat(prompt('Nhập số tiền gửi'));
-        let y = parseInt(prompt('Nhập số năm'));
         let l = parseFloat(prompt('Nhập lãi suất'));
         let ml = m * l/100;
+        let y 
+        if(y<1){
+            y = parseInt(prompt('Nhập số năm'));
+        }
         document.write("Tiền phải trả sau " + y +" năm là: " + (m+y*ml));
     </script>
 </body>
