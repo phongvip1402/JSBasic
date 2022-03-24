@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch case</title>
+</head>
+
+<body>
+    <select name="fruit" id="fruit" onChange="checkPrice()">
+        <option value="Ổi">Ổi</option>
+        <option value="Dưa Hấu">Dưa Hấu</option>
+        <option value="Táo">Táo</option>
+        <option value="Xoài">Xoài</option>
+        <option value="Cam">Cam</option>
+        <option value="Chôm Chôm">Chôm Chôm</option>
+        <option value="Măng Cụt">Măng Cụt</option>
+    </select>
+    <p id="text"></p>
+    <script>
+        function checkPrice() {
+            let fruit = document.getElementById("fruit").value;
+            let text = document.getElementById("text");
+            switch (fruit) {
+                case "Ổi":
+                case "Dưa hấu":
+                    text.innerText = "20000 VNĐ/kg";
+                    break;
+                case "Táo":
+                case "Xoài":
+                    text.innerText = "30000 VNĐ/kg";
+                    break;
+                case "Cam":
+                case "Chôm Chôm":
+                    text.innerText = "40000 VNĐ/kg";
+                    break;
+                case "Măng Cụt":
+                text.innerText = "50000 VNĐ/kg";
+                    break;
+                default:
+                    text.innerText = "";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

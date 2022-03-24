@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính điểm đại học khối D</title>
+</head>
+
+<body>
+    <h1>Tính điểm đại học khối D</h1>
+    <br>
+    <br>
+    <label for="math">Môn Toán</label>
+    <input type="number" id="math" name="math">
+    <br>
+    <br>
+    <label for="lit">Môn Văn</label>
+    <input type="number" id="lit" name="lit">
+    <br>
+    <br>
+    <label for="eng">Môn Anh</label>
+    <input type="number" id="eng" name="eng">
+    <br>
+    <br>
+    <label for="kv">Khu Vực</label>
+    <select name="kv" id="kv">
+        <option value="KV1">KV1</option>
+        <option value="KV2-NT">KV2-NT</option>
+        <option value="KV2">KV2</option>
+        <option value="KV3">KV3</option>
+    </select>
+    <br>
+    <br>
+    <button type="button" onclick="checkPoint()">Tính điểm</button>
+    <br>
+    <hr>
+    <p id="result" style="color: red;"></p>
+
+    <script>
+        let math = document.getElementById("math");
+        let lit = document.getElementById("lit");
+        let eng = document.getElementById("eng");
+        let kv = document.getElementById("kv");
+        let sum;
+        let result = document.getElementById("result");
+       let output;
+        function checkPoint() {
+
+            sum = parseFloat(math.value) + parseFloat(lit.value) + parseFloat(eng.value);
+            console.log(sum);
+            switch (kv.value) {
+                case "KV1":
+                   output= "Tổng điểm đại học khối D của bạn là: " + (sum + 0.75);
+                   console.log(sum);
+                    break;
+                case "KV2-NT":
+                   output= "Tổng điểm đại học khối D của bạn là: " + (sum + 0.5);
+                    break;
+                case "KV2":
+                   output= "Tổng điểm đại học khối D của bạn là: " + (sum + 0.25);
+                    break;
+                case "KV3":
+                   output= "Tổng điểm đại học khối D của bạn là: " + (sum);
+                    break;
+                default:output= "";
+                    break;
+            }
+            result.innerText= output;
+
+        }
+    </script>
+</body>
+
+</html>

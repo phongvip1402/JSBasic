@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xem giá 2</title>
+</head>
+
+<body>
+    <input type="text" id="fruit" onkeyup="checkPrice(this)" placeholder="Tìm tên hoa quả">
+    <br>
+    <br>
+    <p id="result"></p>
+    <script>
+        let result = document.getElementById("result");
+        let output;
+        function checkPrice(obj) {
+            let nameFruit = obj.value;
+            nameFruit = nameFruit.toLowerCase();
+            switch (true) {
+                case (nameFruit == "oi" || nameFruit == "ổi"):
+                case (nameFruit == "dua hau" || nameFruit == "dưa hấu"):
+                   output= result.innerText = "20000 VNĐ/kg";
+                    break;
+                case (nameFruit == "tao" || nameFruit == "táo"):
+                case (nameFruit == "xoai" || nameFruit == "xoài"):
+                   output= result.innerText = "30000 VNĐ/kg";
+                    break;
+                case (nameFruit == "cam"):
+                case (nameFruit == "chom chom" || nameFruit == "chôm chôm"):
+                   output= result.innerText = "40000 VNĐ/kg";
+                    break;
+                case (nameFruit == "măng cụt" || nameFruit == "mang cut"):
+                   output= result.innerText = "50000 VNĐ/kg";
+                    break;
+                default:
+                   output= result.innerText = "Không tìm thấy loại quả này"
+            }
+            result.innerText = output;
+        }
+    </script>
+</body>
+
+</html>
