@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi tiền tệ</title>
+    <style>
+        .form1 {
+            margin-left: 15px;
+        }
+
+        #convert {
+            margin-left: 15px;
+        }
+    </style>
+</head>
+
+<body>
+   
+        <input type="number" class="form1" name="amount" onchange="modifyValue(this)">
+        <select class="form1" name="fromCurrency" id="fromCurrency" onchange="modifyValue(this)">
+            <option value="VND">Viet Nam</option>
+            <option value="USD">American</option>
+            <option value="JPY">Japan</option>
+        </select>
+        <select class="form1" name="toCurrency" id="toCurrency" onchange="modifyValue(this)">
+            <option value="VND">Viet Nam</option>
+            <option value="USD">American</option>
+            <option value="JPY">Japan</option>
+        </select>
+        <button id="convert" type="button" onclick="convert1()">Convert</button>
+    <br>
+    <p id="result"></p>
+
+    <script>
+        let amount, fromCurrency, toCurrency, output;
+        let result = document.getElementById("result");
+
+        function modifyValue(obj) {
+            switch (obj.name) {
+                case "amount":
+                    amount = parseFloat(obj.value);
+                    break;
+                case "fromCurrency":
+                    fromCurrency = obj.value;
+                    break;
+                case "toCurrency":
+                    toCurrency = obj.value;
+                    break;
+            }
+            console.log(fromCurrency, toCurrency, amount);
+        }
+
+        function convert1() {
+            console.log(fromCurrency, toCurrency, typeof(amount));
+            switch (fromCurrency) {
+                case "VND":
+                    switch (toCurrency) {
+                        case "USD":
+                            result.innerText = "Result " + (amount / 22800);
+                            break;
+                        case "JPY":
+                            result.innerText = "Result " + (amount / 200);
+                            break;
+                        case "VND":
+                            result.innerText = "Result " + (amount);
+                            break;
+                    }
+                    break;
+                case "USD":
+                    switch (toCurrency) {
+                        case "VND":
+                            result.innerText = "Result " + (amount * 22800);
+                            break;
+                        case "JPY":
+                            result.innerText = "Result " + (amount * 122);
+                            break;
+                        case "USD":
+                            result.innerText = "Result " + (amount);
+                            break;
+                    }
+                    break;
+                case "JPY":
+                    switch (toCurrency) {
+                        case "VND":
+                            result.innerText = "Result " + (amount * 200);
+                            break;
+                        case "USD":
+                            result.innerText = "Result " + (amount * 0.01);
+                            break;
+                        case "JPY":
+                            result.innerText = "Result " + (amount);
+                            break;
+                    }
+                    break;
+                    result.innerText = output;   
+            }
+            
+        }
+
+
+    </script>
+</body>
+
+</html>
