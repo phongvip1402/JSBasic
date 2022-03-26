@@ -13,23 +13,23 @@
     <br>
     <br>
     <label for="math">Môn Toán</label>
-    <input type="number" id="math" name="math">
+    <input type="number" id="math" name="math" onkeyup="modifyValue(this)">
     <br>
     <br>
     <label for="lit">Môn Văn</label>
-    <input type="number" id="lit" name="lit">
+    <input type="number" id="lit" name="lit" onkeyup="modifyValue(this)">
     <br>
     <br>
     <label for="eng">Môn Anh</label>
-    <input type="number" id="eng" name="eng">
+    <input type="number" id="eng" name="eng" onkeyup="modifyValue(this)">
     <br>
     <br>
     <label for="kv">Khu Vực</label>
     <select name="kv" id="kv">
-        <option value="KV1">KV1</option>
-        <option value="KV2-NT">KV2-NT</option>
-        <option value="KV2">KV2</option>
-        <option value="KV3">KV3</option>
+        <option value="0.75">KV1</option>
+        <option value="0.5">KV2-NT</option>
+        <option value="0.25">KV2</option>
+        <option value="0">KV3</option>
     </select>
     <br>
     <br>
@@ -39,37 +39,30 @@
     <p id="result" style="color: red;"></p>
 
     <script>
-        let math = document.getElementById("math");
-        let lit = document.getElementById("lit");
-        let eng = document.getElementById("eng");
-        let kv = document.getElementById("kv");
-        let sum;
+        let math, lit, eng;
+        let select = document.getElementById("kv");
         let result = document.getElementById("result");
-       let output;
-        function checkPoint() {
-
-            sum = parseFloat(math.value) + parseFloat(lit.value) + parseFloat(eng.value);
-            console.log(sum);
-            switch (kv.value) {
-                case "KV1":
-                   output= "Tổng điểm đại học khối D của bạn là: " + (sum + 0.75);
-                   console.log(sum);
+        function modifyValue(obj) {
+            switch (obj.name) {
+                case "math":
+                    math = parseFloat(obj.value);
                     break;
-                case "KV2-NT":
-                   output= "Tổng điểm đại học khối D của bạn là: " + (sum + 0.5);
+                case "lit":
+                    lit = parseFloat(obj.value);
                     break;
-                case "KV2":
-                   output= "Tổng điểm đại học khối D của bạn là: " + (sum + 0.25);
-                    break;
-                case "KV3":
-                   output= "Tổng điểm đại học khối D của bạn là: " + (sum);
-                    break;
-                default:output= "";
+                case "eng":
+                    eng = parseFloat(obj.value);
                     break;
             }
-            result.innerText= output;
+            console.log(math," ", lit," ", eng);
+        }
+        function checkPoint() {
+            console.log(math+ lit + eng + parseFloat(select.value))
+            result.innerText = (math + lit + eng) + parseFloat(select.value);
 
         }
+
+
     </script>
 </body>
 
