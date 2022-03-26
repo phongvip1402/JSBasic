@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cấu trúc if -else
-    </title>
+    <title>Cấu trúc if else if </title>
 </head>
 <body>
     <script>
-        let username = prompt("Who's there?",'');
+       let username = prompt("Who's there?",'');
         let password = prompt("Password",'');
         if(username == "Admin" && password =='TheMaster'){
             alert("Welcome!");
-        }else{
+        }else if(username == null || password == null){
+            alert("Canceled")
+        }
+        else{
             alert('Wrong password or Wrong username');
         }
     </script>
