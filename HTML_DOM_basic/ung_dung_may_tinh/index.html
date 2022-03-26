@@ -9,40 +9,46 @@
 </head>
 
 <body>
-    <input type="number" id="number1" placeholder="nhập số thứ nhất" required>
-    <input type="number" id="number2" placeholder="nhập số thứ hai" required> <br> <br>
-    <button type="button" onclick="Addition()">Additon(+)</button>
-    <button type="button" onclick="Subtraction()">Subtraction(-)</button>
-    <button type="button" onclick="Multiplication()">Multiplication(*)</button>
-    <button type="button" onclick="Devition()">Division(+)</button>
-
+    <input type="number" placeholder="nhập số thứ nhất" name="firstnumber" onchange="modifyValue(this)" required>
+    <input type="number" name="secoundnumber" placeholder="nhập số thứ hai" onchange="modifyValue(this)" required> <br>
+    <br>
+    <button type="button" onclick="caculate(this)" value="+">Additon(+)</button>
+    <button type="button" onclick="caculate(this)" value="-">Subtraction(-)</button>
+    <button type="button" onclick="caculate(this)" value="*">Multiplication(*)</button>
+    <button type="button" onclick="caculate(this)" value="/">Division(/)</button>
+    <br>
+    <br>
+    <h1 id="result"></h1>
     <script>
-        var number1 = parseInt(document.getElementById("number1").value);
-        var number2 = parseInt(document.getElementById("number2").value);
+        let firstnumber, secoundnumber;
+        let result = document.getElementById("result");
 
-        function Addition() {
-            let result = number1 + number2;
-            alert("Result Addition " + result)
-            console.log(result)
+        function modifyValue(obj) {
+            switch (obj.name) {
+                case "firstnumber":
+                    firstnumber = parseFloat(obj.value);
+                    break;
+                case "secoundnumber":
+                    secoundnumber = parseFloat(obj.value);
+                    break;
+            }
+            console.log(firstnumber, secoundnumber);
         }
-
-        function Subtraction() {
-            var number1 = parseInt(document.getElementById("number1").value);
-            var number2 = parseInt(document.getElementById("number2").value);
-            let result = number1 - number2;
-            alert("Result Subtraction" + result)
-        }
-        function Multiplication() {
-            var number1 = parseInt(document.getElementById("number1").value);
-            var number2 = parseInt(document.getElementById("number2").value);
-            let result = number1 * number2;
-            alert("Result Multiplication" + result)
-        }
-        function Devition() {
-            var number1 = parseInt(document.getElementById("number1").value);
-            var number2 = parseInt(document.getElementById("number2").value);
-            let result = number1 / number2;
-            alert("Result Devition" + result)
+        function caculate(obj) {
+            switch(obj.value){
+                case "+":
+                    result.innerText = "Result " + (firstnumber+secoundnumber);
+                    break; 
+                    case "-":
+                    result.innerText = "Result " + (firstnumber-secoundnumber);
+                    break;
+                    case "*":
+                    result.innerText = "Result " + (firstnumber*secoundnumber);
+                    break;
+                    case "/":
+                    result.innerText = "Result " + (firstnumber/secoundnumber);
+                    break;
+            }
         }
     </script>
 </body>
