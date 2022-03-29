@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vòng lặp lồng nhau</title>
+</head>
+<table border="1" width='300' cellspacing='0' cellpadding='3' id="myTable">
+
+</table>
+
+<body>
+    <script>
+        let table = document.getElementById("myTable");
+        for (let i = 1; i <= 10; i++) {
+            let tr = document.createElement("tr");
+            table.appendChild(tr);
+            for (let j = 1; j <= 10; j++) {
+                let td = document.createElement("td");
+                let textNode = document.createTextNode(i * j);
+                td.appendChild(textNode);
+                tr.appendChild(td);
+            }
+        }
+    </script>
+</body>
+
+</html>
