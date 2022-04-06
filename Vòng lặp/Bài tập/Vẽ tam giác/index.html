@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vẽ tam giác</title>
+</head>
+
+<body>
+    <script>
+        let input = parseInt(prompt("Nhập cạnh muốn vẽ "))
+        for (let i = 0; i < input; i++) {
+            for (let j = 0; j <= i; j++) {
+                document.write("*");
+            }
+            document.write("<br>")
+        }
+        document.write("<br>");
+        document.write("<br>");
+        for (let i = input; i >= 1; i--) {
+            for (let j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            document.write("<br>")
+        }
+        document.write("<br>");
+        document.write("<br>");
+        for (let i = 1; i <= input; i++) {
+            for (let j = 1; j <= input - i; j++) {
+                document.write("&nbsp&nbsp")
+            }
+            for (let k = 1; k <= i; k++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        document.write("<br>");
+        document.write("<br>");
+        for (let i = 1; i <= input; i++) {
+            for (let k = 2; k <= i; k++) {
+                document.write("&nbsp&nbsp");
+            }
+            for (let j = 0; j <= input - i; j++) {
+                document.write("*")
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+
+</html>

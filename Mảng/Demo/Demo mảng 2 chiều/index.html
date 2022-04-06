@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo mảng hai chiều</title>
+</head>
+
+<body>
+    <script>
+        let fruits = [
+            ["hoa hồng", "hoa dâm bụt", "hoa giấy", "hao aa"],
+            ["quả chuối", "quả cam", "quả đào", "quả bưởi"],
+            ["bạch đàn", "cây đa"]
+        ]
+        for (let row = 0; row < fruits.length; ++row) {
+            for (let col = 0; col < fruits[row].length; col++) {
+                console.log(fruits[row][col]);
+            }
+            console.log("br");
+        }
+    </script>
+</body>
+
+</html>

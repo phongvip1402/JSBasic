@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Array</title>
+</head>
+
+<body>
+    <script>
+        let text = '';
+        // khai báo và khởi tạo mảng
+        let firstArray = [1, 2, 3];
+        console.log(firstArray);
+        console.log(firstArray[1]);
+        let secondArray = new Array('a', 'b', 'c');
+        console.log(secondArray);
+        console.log(secondArray[2]);
+        firstArray[0] = 4;
+        for (let index in firstArray) {
+            console.log("element = " + firstArray[index]);
+        }
+        for (let i = 0; i < secondArray.length; i++) {
+            console.log("element = " + secondArray[i]);
+            text += secondArray[i] + "<br>"
+        }
+        document.body.innerHTML = text;
+        document.write("Độ dài mảng thứ nhất = " + firstArray.length);
+        //thêm phần tử vào cuối mảng 
+        secondArray.push("d");
+        console.log("second = " + secondArray);
+        //thêm phần tử vào mảng bằng cách gán giá trị cho phần tử ở vị trí length
+        firstArray[firstArray.length] = 5;
+        console.log("first = " + firstArray);
+        //chuyển tất cả các phần tử trong mảng thành chuỗi và nối chúng lại với nhau
+        console.log(firstArray.join(" - "));
+        //đảo ngược các phần tử trong mảng, trả về một mảng các phần tử bị đảo ngược
+        console.log(firstArray.reverse().join(" - "));
+        //Sắp xếp các phần tử của mảng
+        console.log(firstArray.sort().join("  + "));
+        firstArray.sort(function(a, b) { // Numerical order: 4, 33, 222, 1111
+            return a - b; // Returns &lt; 0, 0, or &gt; 0, depending on order
+        });
+        console.log(firstArray);
+        firstArray.sort(function(a, b) { // Reverse numerical order
+            return b - a;
+        });
+        console.log(firstArray);
+        //để xóa phần tử vào đầu mảng
+        console.log(firstArray.shift());
+        console.log(firstArray);
+        // nối phần tử đầu tiên của mảng
+        firstArray.unshift(1);
+        console.log(firstArray);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fibonaci</title>
+</head>
+
+<body>
+    <script>
+        let firstNumber = 0; //b
+        let secondNumber = 1; //a
+        let temp; //c
+        let input = 0;
+        let result = document.getElementById("result");
+        do {
+            input = parseInt(prompt("Enter Input number"));
+        } while (input < 0 || Number.isInteger(input) == false);
+
+        for (let i = 0; i < input; i++) {
+            temp = secondNumber; // c = a
+            secondNumber = firstNumber + secondNumber;
+            firstNumber = temp;
+            let p = document.createElement("strong");
+            let text = document.createTextNode(firstNumber + " ");
+            p.appendChild(text);
+            document.body.appendChild(p);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game đoán số</title>
+</head>
+
+<body>
+    <button type="button" onclick="playGame()">Start</button>
+    <script>
+        function playGame() {
+            let min = parseInt(prompt("Enter Min number"));
+            let max = parseInt(prompt("Enter Max number"));
+            let random = Math.floor(Math.random() * (max - min + 1)) + min;
+            console.log("random= " + random);
+            let count = 1;
+            let keyword;
+
+            do {
+                keyword = parseInt(prompt("Your guess " + min + " ->>> " + max));
+                alert("Your have " + (3 - count) + " turns left!")
+                if (count == 3) {
+                    alert("Your turn is over!");
+                    break;
+                }
+                if (keyword < random) {
+                    min = keyword;
+                } else if (keyword > random) {
+                    max = keyword;
+                } else {
+                    alert("Your guess correct");
+                    break;
+                }
+                count++;
+                console.log("count = " + count);
+            }
+            while (keyword != random);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm kiếm phần tử trong mảng</title>
+</head>
+
+<body>
+    <input type="text" onchange=" modifyValue(this)">
+    <button onclick="check()">Check</button>
+    <br>
+    <p id="result"></p>
+    <script>
+        let result = document.getElementById("result");
+        let array = new Array(3, 4, 5, 7, 9, 11, 12, 3);
+        let input = 0;
+        let bolean = false;
+
+        function modifyValue(obj) {
+            input = parseInt(obj.value);
+            console.log(input);
+        }
+
+        function check() {
+            let str = '';
+            for (let i = 0; i < array.length; i++) {
+                if (input == array[i]) {
+                    str += "Phần tử " + array[i] + " nằm tại vị trí " + (i + 1) + '<br>';
+                    bolean = true;
+                }
+            }
+            if (bolean == false) {
+                str += "Số " + input + " không có trong mảng";
+            }
+            result.innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>
