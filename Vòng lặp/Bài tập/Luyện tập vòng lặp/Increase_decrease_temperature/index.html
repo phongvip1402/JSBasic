@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increase and decrease the temperature</title>
+</head>
+
+<body>
+    <script>
+        let inputUser;
+        do {
+            inputUser = Number(prompt("Enter the temperature"));
+        }
+        while (Number.isNaN(inputUser));
+
+        while (true) {
+            if (inputUser > 100) {
+                inputUser = prompt("Decrease the temperature");
+            } else if (inputUser < 20) {
+                inputUser = prompt("Increase the temperature");
+            } else {
+                alert("Done");
+                break;
+            }
+        }
+    </script>
+</body>
+
+</html>

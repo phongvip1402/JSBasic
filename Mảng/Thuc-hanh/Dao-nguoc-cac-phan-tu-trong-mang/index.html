@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đảo ngược các phần tử trong mảng</title>
+</head>
+
+<body>
+    <p id="result"></p>
+    <script>
+        let result = document.getElementById("result");
+        text = '';
+        let array = [1, 2, 3, 4, 5, 67, 8, 9];
+        text += "Mảng gốc là " + array + "<br>";
+        array.reverse().join(" ");
+        text += "Mảng sau khi bị đảo ngược là " + array + "<br>";
+        console.log(array);
+        result.innerHTML = text;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm giá trị lớn nhất trong mảng</title>
+</head>
+
+<body>
+    <p id="result"></p>
+    <script>
+        let result = document.getElementById("result");
+        let array = [3, 4, 5, 7, 1, 2, 8, 5, 9, 2, 1, 9, 2, 3, 10, 10, 10, 10, 10];
+        let text = [];
+        array.sort(function(a, b) {
+            return b - a;
+        })
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] == array[0]) {
+                text.push(i);
+            }
+        }
+        result.innerHTML = "Max is " + array[0] + " at position " + text;
+    </script>
+</body>
+
+</html>

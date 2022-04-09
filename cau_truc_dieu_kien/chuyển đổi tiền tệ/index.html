@@ -10,7 +10,7 @@
         .form1 {
             margin-left: 15px;
         }
-
+        
         #convert {
             margin-left: 15px;
         }
@@ -18,19 +18,19 @@
 </head>
 
 <body>
-   
-        <input type="number" class="form1" name="amount" onchange="modifyValue(this)">
-        <select class="form1" name="fromCurrency" id="fromCurrency" onchange="modifyValue(this)">
+
+    <input type="number" class="form1" name="amount" onchange="modifyValue(this)">
+    <select class="form1" name="fromCurrency" id="fromCurrency" onchange="modifyValue(this)">
             <option value="VND">Viet Nam</option>
             <option value="USD">American</option>
             <option value="JPY">Japan</option>
         </select>
-        <select class="form1" name="toCurrency" id="toCurrency" onchange="modifyValue(this)">
+    <select class="form1" name="toCurrency" id="toCurrency" onchange="modifyValue(this)">
             <option value="VND">Viet Nam</option>
             <option value="USD">American</option>
             <option value="JPY">Japan</option>
         </select>
-        <button id="convert" type="button" onclick="convert1()">Convert</button>
+    <button id="convert" type="button" onclick="convert1()">Convert</button>
     <br>
     <p id="result"></p>
 
@@ -95,12 +95,10 @@
                             break;
                     }
                     break;
-                    result.innerText = output;   
+                    result.innerText = output;
             }
-            
+
         }
-
-
     </script>
 </body>
 

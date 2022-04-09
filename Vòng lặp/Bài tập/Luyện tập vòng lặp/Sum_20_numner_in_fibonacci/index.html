@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum_20_numner_in_fibonacci</title>
+</head>
+
+<body>
+    <script>
+        var f0 = 0;
+        var f1 = 1;
+        var temp;
+        var sum = 0;
+        for (let i = 0; i <= 3; i++) {
+            temp = f0 + f1;
+            f0 = f1;
+            f1 = temp;
+            sum += f1;
+        }
+        console.log(sum);
+    </script>
+</body>
+
+</html>
