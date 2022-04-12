@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faking test</title>
+</head>
+
+<body>
+    <textarea cols="50" rows="30" id="input" onkeyup="fakingtest()"></textarea>
+    <script>
+        let input = document.getElementById("input");
+        let text = "Tôi là kẻ ngốc!!!";
+        let userText = [];
+        text = text.split(" ");
+        console.log(text);
+        strLength = text.length;
+
+        function fakingtest() {
+            if (strLength > 0) {
+                userText.push(text[0]);
+                text.shift();
+                input.value = userText.join(" ");
+                if (userText.length > strLength) {
+                    input.value = "";
+                    userText = [];
+                    text = "Tôi là kẻ ngốc!!!";
+                    text = text.split(" ");
+                }
+            }
+            console.log(userText);
+
+        }
+        // setTimeout(fakingtest, 1)
+
+        // function fake() {
+        //     let text = document.getElementById("txt").value;
+        //     let j = text.length;
+        //     if (j > 0) {
+        //         for (let i = 1; i <= j; i++) {
+        //             str += array[i];
+        //             if (i === 22) {
+        //                 document.getElementById("txt").value = "";
+        //                 str = "";
+        //             }
+        //         }
+        //     }
+        //     document.getElementById("txt").value = str;
+        //     str = "";
+        //     setTimeout("fake()", 1);
+        // }
+    </script>
+</body>
+
+</html>

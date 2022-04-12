@@ -14,10 +14,22 @@
     <br>
     <p id="result"></p>
     <script>
+        const max = 10,
+            min = 1;
         let result = document.getElementById("result");
-        let array = new Array(3, 4, 5, 7, 9, 11, 12, 3);
+        let random;
+        let array = [];
         let input = 0;
         let bolean = false;
+
+        for (let i = 0; i < max; i++) {
+            array.push([]);
+            for (let j = 0; j < max; j++) {
+                random = Math.floor(Math.random() * (max - min)) + min;
+                array[i].push(random);
+            }
+        }
+        console.log(array);
 
         function modifyValue(obj) {
             input = parseInt(obj.value);
@@ -27,9 +39,11 @@
         function check() {
             let str = '';
             for (let i = 0; i < array.length; i++) {
-                if (input == array[i]) {
-                    str += "Phần tử " + array[i] + " nằm tại vị trí " + (i + 1) + '<br>';
-                    bolean = true;
+                for (let j = 0; j < array[i].length; j++) {
+                    if (input == array[i][j]) {
+                        str += "Phần tử " + array[i][j] + " nằm tại hàng " + (i + 1) + " và cột " + (j + 1) + '<br>';
+                        bolean = true;
+                    }
                 }
             }
             if (bolean == false) {

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm phần tử lớn nhất và bé nhất trong mảng</title>
+</head>
+
+<body>
+    <p id="result"></p>
+    <script>
+        const maxRan = 100;
+        const minRan = 1;
+        const quantity = 10;
+        let result = document.getElementById("result");
+        let array = [];
+        let text = [];
+        for (let i = 0; i < quantity; i++) {
+            array.push([]);
+            for (let j = 0; j < quantity; j++) {
+                random = Math.floor(Math.random() * (maxRan - minRan) + 1) + minRan;
+                array[i].push(random);
+            }
+        }
+        console.log(array);
+        let maxNum = minNum = array[0][0];
+        for (let i = 0; i < quantity; i++) {
+            for (let j = 0; j < quantity; j++) {
+                if (array[i][j] > maxNum) {
+                    maxNum = array[i][j];
+                }
+                if (array[i][j] < minNum) {
+                    minNum = array[i][j];
+                }
+            }
+        }
+        result.innerHTML = "Min is " + minNum + " and Max is " + maxNum;
+    </script>
+</body>
+
+</html>

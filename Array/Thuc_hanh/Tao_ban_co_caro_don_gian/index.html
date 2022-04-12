@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo bàn cờ caro đơn giản</title>
+</head>
+
+<body>
+    <input type="text" id="input" onchange="modifyValue(this)" placeholder="Nhập hàng,cột">
+    <input type="button" onclick="changeValue()" value="Change value">
+    <input type="button" onclick="reset()" value="reset">
+    <p id="result"></p>
+    <script>
+        let input = document.getElementById("input");
+        let result = document.getElementById("result");
+        let array = [];
+        let quantity = 5;
+        var inputUser, value = [];
+        for (let i = 0; i < quantity; i++) {
+            array.push([]);
+            for (let j = 0; j < quantity; j++) {
+                array[i].push("O");
+            }
+        }
+        console.log(array);
+        display(array);
+
+        function display(arr) {
+            let text = " ";
+            for (let i = 0; i < quantity; i++) {
+                for (let j = 0; j < quantity; j++) {
+                    text += arr[i][j] + " ";
+                }
+                text += "<br>";
+            }
+            result.innerHTML = text;
+        }
+
+        function modifyValue(obj) {
+            inputUser = obj.value;
+            value = inputUser.split(",");
+            let sum = 0;
+        }
+
+        function changeValue() {
+            while (true) {
+                if (value[0] > 5 || value[1] > 5) {
+                    alert("Nhập lại!!!")
+                    value = [];
+                    document.getElementById("input").value = "";
+                } else {
+                    document.getElementById("input").blur();
+                    break;
+                }
+            }
+            array[value[0] - 1][value[1] - 1] = "X";
+            display(array);
+        }
+
+        // const numbers = [1, 2, 3, 4, 5, 6];
+        // let sum = 0;
+
+        // function sumOfArray(numbers) {
+        //     numbers.forEach(function sumElement(element) {
+        //         console.log(element);
+        //     });
+        // }
+        // sumOfArray(numbers);
+    </script>
+</body>
+
+</html>
