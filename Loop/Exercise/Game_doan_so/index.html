@@ -21,11 +21,15 @@
 
             do {
                 keyword = parseInt(prompt("Your guess " + min + " ->>> " + max));
-                alert("Your have " + (3 - count) + " turns left!")
+                if (keyword == random) {
+                    alert("Your guess correct");
+                    break;
+                }
                 if (count == 3) {
                     alert("Your turn is over!");
                     break;
                 }
+                alert("Your have " + (3 - count) + " turns left!")
                 if (keyword < random) {
                     min = keyword;
                 } else if (keyword > random) {
