@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 1</title>
+</head>
+
+<body>
+    <script>
+        let firstNumber = parseInt(prompt("nhập số thứ nhất"));
+        let secondNumber = parseInt(prompt("nhập số thứ hai"));
+
+        function checkValue(num1, num2) {
+            if (num1 > num2) {
+                return alert("Số thứ nhất lớn hơn số thứ hai");
+            } else if (num1 < num2 || num1 == num2) {
+                return alert("Tổng của hai tham số là " + (num1 + num2));
+            }
+        }
+        checkValue(firstNumber, secondNumber);
+    </script>
+</body>
+
+</html>

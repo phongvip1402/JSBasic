@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi giữa feet and meters</title>
+</head>
+
+<body>
+    <input type="number" name="input" onkeyup="modifyValue(this)">
+    <select name="value" onchange="modifyValue(this)">
+        <option value="foot">Foot</option>
+        <option value="meters">Meters</option>
+    </select>
+    <button onclick="Convert()">Convert</button>
+    <p id="result"></p>
+    <script>
+        let value, input;
+        let result = document.getElementById("result");
+        let convert;
+
+        function modifyValue(obj) {
+            switch (obj.name) {
+                case "input":
+                    input = parseFloat(obj.value);
+                    break;
+                case "value":
+                    value = obj.value;
+                    break;
+            }
+            console.log(value, input);
+        }
+
+        function Convert() {
+            let text = '';
+            if (value == "foot") {
+                convert = 0.305 * input;
+                text += "Meters: " + convert;
+            } else {
+                convert = 3.279 * input;
+                text += "Foots: " + convert;
+            }
+            result.innerHTML = text;
+        }
+
+
+        // function
+
+
+        // function count() {
+        //     let count = 0;
+
+        //     function add(count) {
+        //         count++;
+        //         // return count;
+        //     }
+        //     return count;
+        // }
+        // console.log(count());
+        // let count1 = count();
+        // console.log(count());
+        // console.log(count());
+    </script>
+</body>
+
+</html>

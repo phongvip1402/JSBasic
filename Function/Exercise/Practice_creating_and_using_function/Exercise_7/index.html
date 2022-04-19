@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse </title>
+</head>
+
+<body>
+    <script>
+        let arr = [];
+        let count = parseInt(prompt("Nhập vào số lượng số nguyên cần đảo"))
+        for (let i = 0; i < count; i++) {
+            let num = parseFloat(prompt("Nhập số thứ " + (i + 1)));
+            while (isNaN(num)) {
+                num = parseFloat(prompt("Nhập lại số thứ " + (i + 1)));
+            }
+            arr.push(num)
+        }
+        console.log(arr)
+
+        function reverseArr() {
+            let reverse = "";
+            for (let i = arr.length - 1; i >= 0; i--) {
+                reverse += arr[i] + " ";
+            }
+            let arrJoin = arr.join(" ");
+            document.body.innerHTML = "Before reverse: " + arrJoin + "<br><br>" + "After reverse: " + reverse;
+        }
+        reverseArr();
+    </script>
+</body>
+
+</html>

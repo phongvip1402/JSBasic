@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find character in array</title>
+</head>
+
+<body>
+    <script>
+        let stringInput = prompt("Enter your String ");
+        let stringFind; // khai báo globals
+        do {
+            stringFind = prompt("Enter your character have to find");
+        } while (stringFind.length != 1);
+
+        for (let i = 0; i < stringInput.length; i++) {
+            console.log((i + 1) + ": " + stringInput[i]);
+        }
+
+        function findString() {
+            let count = 0;
+            for (let i = 0; i < stringInput.length; i++) {
+                if (stringInput[i] == stringFind) {
+                    count++;
+                }
+            }
+            if (count == 0) {
+                alert("Not found");
+            } else {
+                alert(stringFind + " appearance " + count + " times")
+            }
+        }
+        findString();
+    </script>
+</body>
+
+</html>

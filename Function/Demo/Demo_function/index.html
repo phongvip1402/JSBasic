@@ -10,7 +10,6 @@
 
 <body>
     <p id="demo"></p>
-    article
     <script>
         // function sum(a, b) { //naming conventions : camelcase or snake_case with a verb 
         //     return a + b;
@@ -32,10 +31,31 @@
         // }
         // myFunction("hello");
 
-        function myFunction(x, y) {
-            return x * y;
+        // function myFunction(x, y) {
+        //     return x * y;
+        // }
+        // document.getElementById("demo").innerHTML = typeof(myFunction(4));
+
+        let x = 4;
+
+        function getNum() {
+            let x = 6;
+            console.log("In function " + x)
+            return x;
         }
-        document.getElementById("demo").innerHTML = typeof(myFunction(4));
+
+        console.log("Before call function " + x)
+
+        if (true) {
+            let x = 5;
+            console.log("In if block " + x)
+        }
+
+        console.log("Inside if block " + x);
+
+        getNum();
+
+        console.log("After call function " + x)
     </script>
 </body>
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra số nguyên tố</title>
+</head>
+
+<body>
+    <input type="number" id="input" onchange="modifyValue(this)">
+    <button onclick="display()">Check</button>
+    <p id="result"></p>
+    <p id="result2"></p>
+    <script>
+        let value;
+        let text = '';
+        let text1 = '';
+        let result = document.getElementById("result");
+
+        function modifyValue(obj) {
+            text = " ";
+            result.innerHTML = text;
+            value = parseInt(obj.value);
+            console.log(value);
+        }
+
+
+        function checkPrime(number) {
+            for (i = 2; i < number; i++) {
+                if (number % i == 0)
+                    return false;
+            }
+            return true;
+        }
+
+        function display() {
+            if (value == 2) {
+                text += "Số " + value + " là số nguyên tố";
+            } else if (value < 2) {
+                text += "Số " + value + " không là số nguyên tố"
+            } else {
+                if (checkPrime(value)) {
+                    text += "Số " + value + " là số nguyên tố"
+                } else {
+                    text += "Số " + value + " không là số nguyên tố";
+                }
+            }
+            result.innerHTML = text;
+
+            // print prime num < 10000
+            for (let number = 2; number <= 10000; number++) {
+                if (checkPrime(number)) {
+                    console.log(number);
+                    text1 += number + " "
+                }
+            }
+            document.getElementById("result2").innerHTML = text1;
+        }
+    </script>
+</body>
+
+</html>
