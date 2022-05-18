@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create class Date</title>
+</head>
+
+<body>
+    <script>
+        class Date {
+            constructor(day, month, year) {
+                this.day = day;
+                this.month = month;
+                this.year = year;
+            }
+            getDay() {
+                return this.day;
+            }
+            getMonth() {
+                return this.month;
+            }
+            getYear() {
+                return this.year;
+            }
+            setDay(day) {
+                return this.day = day;
+            }
+            setMonth(month) {
+                return this.month = month;
+            }
+            setYear(year) {
+                return this.year = year;
+            }
+            setDate(day, month, year) {
+                return this.day = day,
+                    this.month = month,
+                    this.year = year;
+            }
+            toString() {
+                if (this.day < 10) {
+                    this.day = '0' + this.day;
+                }
+                if (this.month < 10) {
+                    this.month = '0' + this.month;
+                }
+                if (this.year < 1000 && this.year >= 100) {
+                    this.year = '0' + this.year;
+                } else if (this.year < 100 && this.year >= 10) {
+                    this.year = '00' + this.year;
+                } else if (this.year < 10) {
+                    this.year = '000' + this.year;
+                }
+                return this.day + '/' + this.month + '/' + this.year;
+            }
+        };
+        let date = new Date(2, 3, 2021);
+        console.log(date.getDay() + ' - ' + date.getMonth() + ' - ' + date.getYear());
+        date.setDay(26);
+        date.setMonth(4);
+        date.setYear(2022);
+        console.log(date.getDay() + ' - ' + date.getMonth() + ' - ' + date.getYear());
+        let newDate = new Date();
+        newDate.setDate(2, 4, 2021);
+        console.log(newDate.getDay() + ' - ' + newDate.getMonth() + ' - ' + newDate.getYear());
+        newDate.setDay(3);
+        newDate.setMonth(12);
+        newDate.setYear(1234)
+        console.log(newDate.toString());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create class circle</title>
+</head>
+
+<body>
+    <script>
+        class Circle {
+            constructor(radius, color) {
+                this.radius = radius;
+                this.color = color;
+            }
+            getRadius() {
+                return this.radius;
+            }
+            getColor() {
+                return this.color;
+            }
+            getArea() {
+                return Math.pow(this.radius, 2) * Math.PI;
+            }
+        }
+
+        let circle = new Circle(2, 'red');
+        console.log('Radius is ' + circle.getRadius());
+        console.log('Color is ' + circle.getColor());
+        console.log('Area is ' + Math.round(circle.getArea()));
+    </script>
+</body>
+
+</html>

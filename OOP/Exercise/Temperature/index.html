@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature</title>
+</head>
+
+<body>
+    <script>
+        class Temperature {
+            constructor(cecius) {
+                this.cecius = cecius;
+            }
+
+            getCecius() {
+                return this.cecius;
+            }
+            setCecius(cecius) {
+                return this.cecius = cecius;
+            }
+            convertCToF() {
+                return this.cecius * 1.8 + 32;
+            }
+            convertCToK() {
+                return this.cecius + 273.15;
+            }
+        }
+
+        let cecius = new Temperature();
+        cecius.setCecius(20);
+        console.log("C to F is: " + cecius.convertCToF());
+        console.log("C to K is: " + cecius.convertCToK());
+    </script>
+</body>
+
+</html>

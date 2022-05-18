@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case study</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<style>
+    body {
+        background-image: url('./media/img/images.jpg');
+        z-index: -1;
+    }
+    
+    .top,
+    .bottom {
+        flex-basis: 45%;
+    }
+    
+    canvas {
+        background-color: black;
+    }
+    
+    .bottom {
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <audio id="audio" autoplay>
+        <source src="./media/audio/Stay.mp3?loop=0">
+    </audio>
+    <div class="container d-flex pt-5">
+        <div class="top text-center">
+            <canvas id="gameCanvas" class="mr-2" width="500" height="500" style="border: 1px solid black"></canvas>
+        </div>
+
+        <div class="bottom container">
+            <div class="tutorial">
+                <h4 class="title-tutorial" style="color: black;">1.Hướng dẫn</h4>
+                <div class="content-tutorial">
+                    <div class="item d-flex">
+                        <p> <i class="fa-solid fa-arrow-left-long"></i> or A &nbsp Di chuyển sang trái</p>
+                    </div>
+                </div>
+                <div class="content-tutorial">
+                    <div class="item d-flex">
+                        <p> <i class="fa-solid fa-arrow-right"></i> or D &nbsp Di chuyển sang phải</p>
+                    </div>
+                </div>
+            </div>
+            <div class="rule">
+                <h4 class="title-tutorial" style="color: black;">2.Cách chơi</h4>
+                <div class="content-rule">
+                    + Trò chơi này có một quả bóng có thể di chuyển qua lại trong khung màn hình đó.<br> + Người chung sẽ dùng bàn phím để diều khiển một thanh đỡ để hứng quả bóng,giúp quả bóng này lên.
+                    <br> + Nếu không hứng được trò chơi sẽ kết thúc.<br>
+                </div>
+            </div>
+            <div class="btn" style="margin-top:100px;">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h2>Music</h2>
+                        <button onclick="playMusic()"><i class="bi bi-play"></i></button>
+                        <button onclick="stopMusic()"><i class="bi bi-pause-fill"></i></button>
+                    </div>
+                    <div class="col-md-5">
+                        <h2>PlayGame</h2>
+                        <button onclick="playGame()">Play Game</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./assets/js/Circle.js"></script>
+    <script src="./assets/js/Rect.js"></script>
+    <script>
+        let mainFrame = document.getElementById("gameCanvas");
+        let gameContext = mainFrame.getContext("2d");
+        let isGameOver = false;
+
+        function playMusic() {
+            console.log("Playing");
+            document.getElementById("audio").play();
+        }
+
+        function stopMusic() {
+            console.log("Playing");
+            document.getElementById("audio").pause();
+        }
+
+        function playGame() {
+            console.log("Play");
+            this.location.reload();
+
+        }
+
+        //paddle attrs
+        let paddleCurrentX = mainFrame.width / 2 - 100; /*Trừ một nửa độ dài của panel*/
+        let paddleCurrentY = mainFrame.height - 45;
+        let paddle = new Rect(paddleCurrentX, paddleCurrentY, 200, 20, "#FF3300");
+
+        //Ball attrs
+        let ballCurrentX = mainFrame.width / 2;
+        let ballCurrentY = mainFrame.height - 70;
+        let ball = new Circle(ballCurrentX, ballCurrentY, 10, "#FFFF33");
+
+        function drawPaddle() {
+            gameContext.beginPath();
+            gameContext.rect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight()); // hàm vẽ hình chữ nhật
+            gameContext.fillStyle = paddle.getColor();
+            gameContext.fill();
+            gameContext.closePath();
+        }
+
+        function drawBall() {
+            gameContext.beginPath();
+            gameContext.arc(ball.getX(), ball.getY(), ball.getRadius(), 0, Math.PI * 2); // hàm vẽ hình tròn
+            gameContext.fillStyle = ball.getColor();
+            gameContext.fill();
+            gameContext.closePath();
+        }
+
+
+        function updatePaddlePosition() {
+            //di chuyển paddle
+            if (paddle.isMovingToLeft()) {
+                paddle.toLeft();
+            }
+            if (paddle.isMovingToRight()) {
+                paddle.toRight();
+            }
+            //paddle chạm 2 bên
+            if (paddle.getX() < 0) {
+                paddle.x = 0;
+            } else if (paddle.getX() > mainFrame.width - paddle.getWidth()) {
+                paddle.x = mainFrame.width - paddle.getWidth();
+            }
+        }
+
+        function updateBallPosition() {
+            if (ball.getX() < ball.getRadius() || ball.getX() > mainFrame.width - ball.getRadius()) {
+                ball.reverseDistanceToX();
+            } else if (ball.getY() < ball.getRadius()) {
+                ball.reverseDistanceToY();
+            }
+            ball.move();
+        }
+
+        function handleBallCollisionPaddle() {
+            if (ball.getX() + ball.getRadius() >= paddle.getX() && ball.getX() + ball.getRadius() <= paddle.getX() +
+                paddle.getWidth() && ball.getY() + ball.getRadius() >= mainFrame.height - paddle.getHeight() - 20) {
+                ball.reverseDistanceToY();
+            }
+        }
+
+        function play() {
+            if (!isGameOver) {
+                gameContext.clearRect(0, 0, mainFrame.width, mainFrame.height);
+                drawPaddle();
+                drawBall();
+                updatePaddlePosition();
+                handleBallCollisionPaddle();
+                updateBallPosition();
+                if (ball.getY() + ball.getRadius() >= mainFrame.height) {
+                    isGameOver = true;
+                }
+                requestAnimationFrame(play);
+            } else {
+                stopMusic();
+                alert("You lose!!!");
+
+            }
+
+        }
+        document.addEventListener("keydown", function(e) {
+            if (e.keyCode == 37 || e.keyCode == 65) {
+                paddle.moveLeft();
+            } else if (e.keyCode == 39 || e.keyCode == 68) {
+                paddle.moveRight();
+            }
+        })
+        document.addEventListener("keyup", function(e) {
+            if (e.keyCode == 37 || e.keyCode == 65) {
+                paddle.stop();
+            } else if (e.keyCode == 39 || e.keyCode == 68) {
+                paddle.stop();
+            }
+        })
+        play();
+    </script>
+</body>
+
+</html>
